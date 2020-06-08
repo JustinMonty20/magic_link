@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from pytz import timezone
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -53,10 +53,15 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'ml_db.urls'
 
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ 
+            os.path.join(BASE_DIR,'mg_links/templates'),
+            os.path.join(BASE_DIR,'mg_links','templates','mg_links')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

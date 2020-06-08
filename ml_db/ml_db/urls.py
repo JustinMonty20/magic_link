@@ -20,7 +20,7 @@ from django.urls import include,path
 # Only exception is with the admin site as seen down below
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('links/',include('mg_links.urls'))
+    path('home/', include('mg_links.urls'))
 ]
 # added another url path that returns something basic to the user when the visit the /links/ route. 
 
