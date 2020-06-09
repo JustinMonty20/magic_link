@@ -4,10 +4,23 @@
 </head>
 <body>
     <h4>Search the Database here</h4>
+    <a href='/'>Return home</a>
         <div>
             <form action='/search' method='GET'>
-                Search by key_word: <input type='text' name='q' id='id_q' value='{{query}}'/>
+                {{form}}
                 <button type='submit'>Search DB</button>
             </form>
         </div>
+        <div>
+    {% if results %}
+        {% for item in results %}
+            <ul>
+                <li>
+                   <p>{{ item.product_name }} {{item.link}}</p> 
+                </li>
+            </ul>
+        {%endfor%}
+    {%endif%}
+</div>
+    
 </body>
