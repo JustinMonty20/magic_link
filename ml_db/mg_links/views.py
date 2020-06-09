@@ -22,7 +22,10 @@ def index(request):
 
 
 def added(request):
-    return HttpResponse(request, 'Added the new item to the database')
+    return HttpResponse('Added the new item to the database')
+
+# def search(request):
+
 
         
 
