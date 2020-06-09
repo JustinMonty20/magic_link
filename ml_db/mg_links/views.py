@@ -1,8 +1,33 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
+from .forms import AddProduct
+from .models import Product
 
 
 # Create your views here.
 
 def index(request):
-    return HttpResponse(render(request,'mg_links/add_product.htm'))
+    if request.method == 'POST':
+        form = AddProduct(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['product_name']
+            key = form.cleaned_data['key_word']
+            url = form.cleaned_data['link']
+            new_item = Product.objects.create(product_name=name,key_word=key,link=url)
+            new_item.save()
+            return HttpResponseRedirect('/added/')
+    else:
+        form = AddProduct()
+    return render(request,'mg_links/add_product.htm', {'form':AddProduct})
+
+
+def added(request):
+    return HttpResponse(request, 'Added the new item to the database')
+
+        
+
+    
+    
+    
+
+    

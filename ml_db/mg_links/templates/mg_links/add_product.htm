@@ -4,5 +4,13 @@
 </head>
 <body>
 <h1>Chessis's Magic Links Database</h1>
-    
+<a href="/search">Search DB</a>
+    <div>
+        <form action='/home/' method='POST'>
+        {%csrf_token%}
+        {{form}}
+        <input type='submit'>
+        </form>
+
+    </div>
 </body>
