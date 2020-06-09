@@ -6,7 +6,7 @@
     <h4>Search the Database here</h4>
         <div>
             <form action='/search' method='GET'>
-                {{ form }}
+                Search by key_word: <input type='text' name='q' id='id_q' value='{{query}}'/>
                 <button type='submit'>Search DB</button>
             </form>
         </div>

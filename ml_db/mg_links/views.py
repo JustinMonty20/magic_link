@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, View
+from django.template import RequestContext
 from .forms import AddProduct
 from .models import Product
 
@@ -21,12 +22,14 @@ def index(request):
         form = AddProduct()
     return render(request,'mg_links/add_product.htm', {'form':AddProduct})
 
-
+# class FilteredView(View):
+#     def get(self,request)
 class SearchView(TemplateView):
     template_name = 'search.htm'
-
 class AddedView(TemplateView):
     template_name = 'added.htm'
+
+
 
 
         
