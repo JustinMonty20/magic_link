@@ -10,3 +10,6 @@ class AddProduct(forms.Form):
         model = Product 
 
 
+class SearchProduct(forms.Form):
+    looking_for = forms.CharField(max_length=200, label='Search by key_word ')
+

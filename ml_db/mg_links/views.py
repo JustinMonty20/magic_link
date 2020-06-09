@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
+from django.views.generic import TemplateView
 from .forms import AddProduct
 from .models import Product
 
@@ -21,10 +22,11 @@ def index(request):
     return render(request,'mg_links/add_product.htm', {'form':AddProduct})
 
 
-def added(request):
-    return HttpResponse('Added the new item to the database')
+class SearchView(TemplateView):
+    template_name = 'search.htm'
 
-# def search(request):
+class AddedView(TemplateView):
+    template_name = 'added.htm'
 
 
         
