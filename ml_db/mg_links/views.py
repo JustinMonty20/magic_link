@@ -8,9 +8,10 @@ from .models import Product
 
 # Create your views here.
 
+# old way of creating a view.
 def index(request):
     if request.method == 'POST':
-        form = AddProduct(request.POST)
+        form = AddProduct(request.POST or None)
         if form.is_valid():
             name = form.cleaned_data['product_name']
             key = form.cleaned_data['key_word']
@@ -22,6 +23,7 @@ def index(request):
         form = AddProduct()
     return render(request,'mg_links/add_product.htm', {'form':AddProduct})
 
+# new class based way of creating a view. kinda similar to react except its creating the routes. 
 class SearchView(View):
     def get(self,request):
         template_name = 'search.htm'
