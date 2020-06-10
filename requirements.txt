@@ -8,9 +8,7 @@ joblib==0.15.1
 kiwisolver==1.2.0
 lazy-object-proxy==1.4.3
 lxml==4.5.1
-matplotlib==3.2.1
 mccabe==0.6.1
-pendulum==2.1.0
 protobuf==3.12.2
 psycopg2-binary==2.8.5
 pycodestyle==2.5.0
