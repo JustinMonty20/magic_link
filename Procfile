@@ -1,1 +1,1 @@
-web: gunicorn ml_db/ml_db.wsgi
+web: gunicorn magic_link.wsgi
